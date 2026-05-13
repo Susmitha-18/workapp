@@ -1,7 +1,18 @@
 pipeline {
     agent any
 
+    options {
+        skipDefaultCheckout(true)
+    }
+
     stages {
+
+        stage('Clone Repository') {
+            steps {
+                git branch: 'develop',
+                url: 'https://github.com/Susmitha-18/workapp.git'
+            }
+        }
 
         stage('Build Docker Images') {
             steps {
