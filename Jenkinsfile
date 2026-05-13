@@ -1,12 +1,27 @@
 pipeline {
     agent any
 
+    options {
+        skipDefaultCheckout(true)
+    }
+
     stages {
 
-        stage('Build Docker Images') {
+        stage('Manual Git Clone') {
             steps {
-                sh 'pwd'
-                sh 'ls -la'
+                sh '''
+                rm -rf project
+                git clone -b develop https://github.com/Susmitha-18/workapp.git project
+                '''
+            }
+        }
+
+        stage('Check Files') {
+            steps {
+                dir('project') {
+                    sh 'pwd'
+                    sh 'ls -la'
+                }
             }
         }
 
