@@ -1,29 +1,18 @@
 pipeline {
     agent any
 
-    options {
-        skipDefaultCheckout(true)
-    }
-
     stages {
-
-        stage('Clone Repository') {
-            steps {
-                git branch: 'develop',
-                url: 'https://github.com/Susmitha-18/workapp.git'
-            }
-        }
 
         stage('Build Docker Images') {
             steps {
-                sh 'docker build -t workspace-frontend ./frontend'
-                sh 'docker build -t workspace-backend ./backend'
+                sh 'pwd'
+                sh 'ls -la'
             }
         }
 
         stage('Deploy to DEV') {
             steps {
-                sh 'docker-compose up -d'
+                echo 'DEV Deployment Stage'
             }
         }
 
