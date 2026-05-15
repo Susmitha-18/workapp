@@ -30,7 +30,7 @@ const Dashboard = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Workspace Available</h1>
+          <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Workspace Available!</h1>
           <p className="text-gray-500 mt-1">Browse and book your perfect spot for the day.</p>
         </div>
         <Link to="/book" className="bg-brand-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-brand-700 transition-all shadow-md hover:shadow-lg">
