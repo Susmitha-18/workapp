@@ -17,7 +17,7 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 dir('terraform') {
-                    bat '"C:\\ProgramData\\chocolatey\\bin\\bin\\terraform.exe" init'
+                    sh 'terraform init'
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
         stage('Terraform Validate') {
             steps {
                 dir('terraform') {
-                    bat '"C:\\ProgramData\\chocolatey\\bin\\bin\\terraform.exe" validate'
+                    sh 'terraform validate'
                 }
             }
         }
@@ -33,7 +33,7 @@ pipeline {
         stage('Terraform Plan') {
             steps {
                 dir('terraform') {
-                    bat '"C:\\ProgramData\\chocolatey\\bin\\bin\\terraform.exe" plan'
+                    sh 'terraform plan'
                 }
             }
         }
@@ -41,26 +41,26 @@ pipeline {
         stage('Terraform Apply') {
             steps {
                 dir('terraform') {
-                    bat '"C:\\ProgramData\\chocolatey\\bin\\bin\\terraform.exe" apply -auto-approve'
+                    sh 'terraform apply -auto-approve'
                 }
             }
         }
 
         stage('Docker Build') {
             steps {
-                bat 'docker build -t %IMAGE_NAME% .'
+                sh 'docker build -t $IMAGE_NAME .'
             }
         }
 
         stage('Docker Push') {
             steps {
-                bat 'docker push %IMAGE_NAME%'
+                sh 'docker push $IMAGE_NAME'
             }
         }
 
         stage('Deploy to DEV') {
             steps {
-                echo 'Deploying Workspace Booking System to DEV Environment'
+                echo 'Deploying to DEV Environment'
             }
         }
 
@@ -72,7 +72,7 @@ pipeline {
 
         stage('Deploy to PROD') {
             steps {
-                echo 'Deploying Workspace Booking System to Production Environment'
+                echo 'Deploying to PROD Environment'
             }
         }
     }
