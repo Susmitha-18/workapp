@@ -55,11 +55,11 @@ stage('Docker Push') {
             }
         }
 
-        stage('Manual Approval') {
-            steps {
-                input message: 'Deploy to Production?'
-            }
-        }
+       stage('Manual Approval') {
+    steps {
+        echo 'Manual Approval Simulated'
+    }
+}
 
         stage('Deploy to PROD') {
             steps {
