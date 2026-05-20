@@ -14,27 +14,35 @@ pipeline {
             }
         }
 
-        stage('Terraform Init') {
+       stage('Terraform Init') {
     steps {
-        sh 'echo Terraform Init Successful'
+        dir('terraform') {
+            sh 'terraform init'
+        }
     }
 }
 
 stage('Terraform Validate') {
     steps {
-        sh 'echo Terraform Validate Successful'
+        dir('terraform') {
+            sh 'terraform validate'
+        }
     }
 }
 
 stage('Terraform Plan') {
     steps {
-        sh 'echo Terraform Plan Successful'
+        dir('terraform') {
+            sh 'terraform plan'
+        }
     }
 }
 
 stage('Terraform Apply') {
     steps {
-        sh 'echo Terraform Apply Successful'
+        dir('terraform') {
+            sh 'terraform apply -auto-approve'
+        }
     }
 }
        stage('Docker Build') {
