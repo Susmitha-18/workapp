@@ -1,23 +1,27 @@
-version: '3.9'
+  docker:
+    name: Docker Build & Push
+    runs-on: ubuntu-latest
+    needs: terraform
 
-services:
-  frontend:
-    build: ./frontend
-    ports:
-      - "5173:5173"
-    depends_on:
-      - backend
+    steps:
 
-  backend:
-    build: ./backend
-    ports:
-      - "5001:5000"
-    env_file:
-      - ./backend/.env
-    depends_on:
-      - mongodb
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-  mongodb:
-    image: mongo
-    ports:
-      - "27017:27017"
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build Frontend Image
+        run: docker build -t susmitha18/workapp-frontend:latest ./frontend
+
+      - name: Build Backend Image
+        run: docker build -t susmitha18/workapp-backend:latest ./backend
+
+      - name: Push Frontend Image
+        run: docker push susmitha18/workapp-frontend:latest
+
+      - name: Push Backend Image
+        run: docker push susmitha18/workapp-backend:latest
