@@ -22,6 +22,6 @@ ami           = "ami-0f5ee92e2d63afc18"
 instance_type = "t3.micro"
 key_name = "Susmipass"
 tags = {
-Name = "Prod-Server"
+Name = "Prod-1-Server"
 }
 }
