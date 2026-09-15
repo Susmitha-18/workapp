@@ -299,7 +299,7 @@ workspace-booking-system/
 
 ### Project Directory
 
-![Project Directory](screenshots/Screenshot%202026-05-21%20204845.png)
+![Project Directory](screenshots/Screenshot 2026-05-20 230313.png)
 
 ---
 
@@ -380,8 +380,6 @@ Deployment and infrastructure issues were analyzed and resolved throughout the i
 ## GitHub Actions Deployment
 
 ![GitHub Actions Deployment](screenshots/Screenshot%202026-05-20%20225501.png)
-
-## Project Structure
 
 ![Project Structure](screenshots/Screenshot%202026-05-21%20204845.png)
 
