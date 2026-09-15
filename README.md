@@ -299,7 +299,7 @@ workspace-booking-system/
 
 ### Project Directory
 
-![Project Directory](screenshots/Screenshot 2026-05-20 230313.png)
+![Project Directory](screenshots/Screenshot%202026-05-20%20230313.png)
 
 ---
 
